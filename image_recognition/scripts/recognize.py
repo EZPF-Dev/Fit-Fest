@@ -21,8 +21,8 @@ import numpy as np
 from PIL import Image
 import tflite_runtime.interpreter as tflite
 
-labelsFile = '/tmp/labels.txt'
-modelsFile = '/tmp/mobilenet_v1_1.0_224_quant.tflite'
+labelsFile = 'tensorflow/labels.txt'
+modelsFile = 'tensorflow/mobilenet_v1_1.0_224_quant.tflite'
 inputMean = 127.5
 inputStd = 127.5
 numThreads = None
