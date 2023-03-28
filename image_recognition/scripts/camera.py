@@ -33,7 +33,9 @@ def take_photo(cam):
     image = cam.get_image()
   
     # saving the image
-    pygame.image.save(image, "/home/fitfest/Desktop/Fit-Fest/image_recognition/images/filename.bmp")
+    imagePath = "/home/fitfest/Desktop/Fit-Fest/image_recognition/images/filename.bmp"
+    pygame.image.save(image, imagePath)
+    return imagePath
     # pygame.camera.Camera.stop()
 
 def camera_off (cam):
