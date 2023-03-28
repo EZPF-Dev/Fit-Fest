@@ -10,11 +10,14 @@ def search_recipes(ingredients, exclude=[], cuisine=''):
     recipes = []
     page_number = 1
     while True:
+        print("asking")
         res = requests.get(url.format(ingredients, page_number, cuisine))
+        print(res)
         soup = BeautifulSoup(res.content, 'html.parser')
         results = soup.find_all('article', {'class': 'fixed-recipe-card'})
         if not results: # no more results, break out of the loop
             break
+        print(results)
         for result in results:
             recipe = {}
             recipe['name'] = result.find('h3', {'class': 'fixed-recipe-card__h3'}).text.strip()
@@ -41,6 +44,7 @@ def search_recipes(ingredients, exclude=[], cuisine=''):
 ingredients = 'chicken, rice, broccoli'
 exclude = ['onion', 'garlic']
 cuisine = 'chinese'
+print("rPrinting")
 recipes = search_recipes(ingredients, exclude, cuisine)
 for recipe in recipes:
     print(recipe['name'])

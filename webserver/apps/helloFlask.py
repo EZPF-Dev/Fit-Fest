@@ -20,7 +20,8 @@ import json
 import time
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
-app = Flask(__name__, template_folder='/tmp/templates')
+app = Flask(__name__)
+print(open("prueba.css"))
 ingredients = ['']
 @app.route('/')
 def hello_world():
