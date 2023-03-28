@@ -13,6 +13,7 @@ def takePhoto():
     cam = camera.initialize_photo()
     imageName = camera.take_photo(cam)
     camera.camera_off(cam)
+    
     return imageName
 
  # creating a running loop
@@ -33,3 +34,4 @@ while True:
             imageName = takePhoto()
             newItems = recog.recognize(imageName)
             print(newItems)
+            

@@ -40,33 +40,3 @@ def take_photo(cam):
 
 def camera_off (cam):
    cam.stop()
-        
-
-def keyboard_input ():
-  # initialising pygame
- pygame.init()
- 
- # creating display
- display = pygame.display.set_mode((5, 5))
- 
- # creating a running loop
- while True:
-       
-    # creating a loop to check events that
-    # are occurring
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-         
-        # checking if keydown event happened or not
-        if event.type == pygame.KEYDOWN:
-           
-            # if keydown event happened
-            # than printing a string to output
-            print("A key has been pressed")
-            cam = initialize_photo()
-            take_photo(cam)
-            camera_off(cam)
-
-keyboard_input()
