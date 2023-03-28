@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="prueba.css">
+    <!-- <script src="LC.js"></script> -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initia-scale=1">
+    
+    <style>
+
+    </style>
+  </head>
+
+<body>
+  <div class="top">
+      <h1 id="AppName">Inventory</h1>
+  </div>
+
+  <div class="opt">
+    <h2 class="options">Perishables</h2>
+    <h2 class="options">All</h2>
+    <h2 class="options">Protein</h2>
+    <h2 class="options">Vegetables</h2>
+  </div>
+
+  <div class="food_list">
+    <ul id="ScanedFoodList"></ul>
+    <script>
+      const ingridients = [
+        "Apple",
+        "Banana",
+        "Avocado",
+        "Beef",
+        "Chess",
+        "Chicken",
+        "Onion",
+        "Milk",
+        "Rice",
+        "Oat",
+        "Almonds"
+      ];
+
+      let list = document.getElementById("ScanedFoodList");
+     
+      ingridients.forEach((item) => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        list.appendChild(li);
+      });
+      
+    </script>
+  </div>
+
+</body>
+</html>
