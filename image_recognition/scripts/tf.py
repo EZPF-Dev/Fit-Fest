@@ -33,7 +33,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '-i',
       '--image',
-      default='/tmp/Frutas-y-primavera-2.bmp',
+      default='/home/fitfest/Desktop/Fit-Fest/image_recognition/images/filename.bmp',
       help='image to be classified')
   parser.add_argument(
       '-m',

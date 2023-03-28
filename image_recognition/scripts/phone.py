@@ -3,6 +3,10 @@ import recognize as recog
 import camera
 import pygame
 import sys
+import json
+import requests
+
+url = 'http://192.168.88.165:5000/ingredients'
 
 pygame.init()
 
@@ -32,6 +36,16 @@ while True:
             # than printing a string to output
             print("A key has been pressed")
             imageName = takePhoto()
+            print('here')
             newItems = recog.recognize(imageName)
-            print(newItems)
+            ingredients = {'ingredients':newItems}
+            myobj = json.dumps(ingredients)
+            objstring= json.loads(myobj)
+            myobj2=json.dumps(objstring)
+            print (objstring['ingredients'])
+            print(myobj2)
+
+            x = requests.post(url, json = myobj2) 
+            
+
             

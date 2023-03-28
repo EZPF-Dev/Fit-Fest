@@ -21,8 +21,11 @@ import numpy as np
 from PIL import Image
 import tflite_runtime.interpreter as tflite
 
+#labelsFile = 'tensorflow/labels.txt'
+#modelsFile = 'tensorflow/mobilenet_v1_1.0_224_quant.tflite'
 labelsFile = 'tensorflow/labels.txt'
 modelsFile = 'tensorflow/mobilenet_v1_1.0_224_quant.tflite'
+
 inputMean = 127.5
 inputStd = 127.5
 numThreads = None
@@ -35,7 +38,7 @@ def load_labels(filename):
 
 def recognize(imgName):
   ext_delegate = None
-  ext_delegate_options = {}
+  ext_delegate_options = None
 
   # parse extenal delegate options
   if ext_delegate_options is not None:
@@ -92,14 +95,16 @@ def recognize(imgName):
   for i in top_k:
     if floating_model:
       print('{:08.6f}: {}'.format(float(results[i]), labels[i]))
-      resultLabels.append(labels[i])
+      newItem=labels[i].split(":")[1]
+      if (newItem == 'banana' or newItem == 'water bottle' or newItem == 'apple' or newItem == 'corn' or newItem == 'burrito' or newItem == 'pineapple' or newItem == 'lemon' or newItem == 'broccoli' ):
+         resultLabels.append(newItem)
+      else:
+        print('')
+         
     else:
       print('{:08.6f}: {}'.format(float(results[i] / 255.0), labels[i]))
-      resultLabels.append(labels[i])
+      newItem=labels[i].split(":")[1]
+      resultLabels.append(newItem)
 
   print('time: {:.3f}ms'.format((stop_time - start_time) * 1000))
   return resultLabels
-
-
-def recognize(imageName):
-    img = imageName
